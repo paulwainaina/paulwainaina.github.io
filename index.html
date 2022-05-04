@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
@@ -6,6 +7,53 @@
         <title >Paul Wainaina</title>
     </head>
     <body>
+        <nav class="navbar navbar-light" style="background-color: #18433a;">
+            <a class="navbar-brand" href="#">
+                <img src="./favicon.png" width="30" height="30" alt="">
+            </a>
+        </nav>
 
+        <div class="container">
+            <p>
+                <h5>Dominator challenge</h5>
+                Today i discovered an interesting way to solve the dominator codility challenge using maps.
+                The challenge involves finding any index of element that occurs more than half the size of array.
+                
+                The thought process was:                
+                <ol>Find unique element of the element while maintaining a count.</ol>
+                <ol>If an element is found with a count higher than half the size of array it is stored</ol>
+                <ol>Loop through the array to find its index</ol>
+             </p>    
+                <pre>
+                <code >
+                #include &ltmap>
+                #include &ltclimits>
+                       
+                int solution(vector&ltint> &A) {    
+                    if(A.empty())return -1;
+                    if(A.size()==1)return 0;
+                    int dominator{INT_MAX};
+                    std::map&ltint,int>count{{A[0],1}};
+                    for (size_t x{1};x&ltA.size();x++){
+                        auto point=count.find(A[x]);
+                        if(point!=count.end()){
+                            point->second++;
+                            if((int)point->second>(int)(A.size()/2)){
+                                dominator=point->first;
+                            }
+                        }else{
+                            count.insert({A[x],1});
+                        }
+                    }
+                    if(dominator==INT_MAX){return -1;}else{
+                        for(size_t x{0};x&ltA.size();x++){
+                            if (A[x]==dominator) return x;
+                        }
+                    }                                
+                }
+                </code>
+                </pre>
+           
+        </div>        
     </body>    
 </html>
