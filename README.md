@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @paulwainaina
-- 👀 I’m interested in machine Learning and software development
+- 👀 I’m interested in cyber security, machine Learning and software development
 - 🌱 I’m currently learning go lang 
-- 💞️ I’m looking to collaborate on any machine learning project
+- 💞️ I’m looking to collaborate on any opensource project
 - 📫 How to reach me paulwainaina36@gmail.com
 
 <!---
